@@ -19,10 +19,6 @@ cscript //nologo .\!tempVBS!
 DEL !tempVBS! /f /q
 )
 
-if exist "\\stl_server\data" (
-for /f "delims=[] tokens=2" %%a in ('ping %computername% -4 -n 1 ^| findstr "["') do (set thisip=%%a)
-)
-
 :: Avoid conflict with previously installed
 Schtasks.exe /delete /tn cureit_as_admin_lite /f
 Schtasks.exe /delete /tn cureit_as_admin_fast /f
